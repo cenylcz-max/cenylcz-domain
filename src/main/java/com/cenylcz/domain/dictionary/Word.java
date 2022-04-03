@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "word", schema = "dictionary")
+@Table(name = "words", schema = "cenylcz")
 public class Word extends Model  {
 
     @Id
@@ -16,11 +16,8 @@ public class Word extends Model  {
     @Column(name = "word", nullable = false)
     private String word;
 
-    @Column(name = "meaning", nullable = false)
-    private String meaning;
-
-    @Column(name = "frequency", nullable = false)
-    private Integer frequency;
+    @Column(name = "definition", nullable = false)
+    private String definition;
 
     @Column(name = "example", nullable = true)
     private String example;
@@ -41,20 +38,12 @@ public class Word extends Model  {
         this.word = word;
     }
 
-    public String getMeaning() {
-        return meaning;
+    public String getDefinition() {
+        return definition;
     }
 
-    public void setMeaning(String meaning) {
-        this.meaning = meaning;
-    }
-
-    public Integer getFrequency() {
-        return frequency;
-    }
-
-    public void setFrequency(Integer frequency) {
-        this.frequency = frequency;
+    public void setDefinition(String definition) {
+        this.definition = definition;
     }
 
     public String getExample() {
@@ -70,12 +59,12 @@ public class Word extends Model  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Word word1 = (Word) o;
-        return Objects.equals(wordKey, word1.wordKey) && Objects.equals(word, word1.word) && Objects.equals(meaning, word1.meaning) && Objects.equals(frequency, word1.frequency) && Objects.equals(example, word1.example);
+        return Objects.equals(wordKey, word1.wordKey) && Objects.equals(word, word1.word) && Objects.equals(definition, word1.definition) && Objects.equals(example, word1.example);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(wordKey, word, meaning, frequency, example);
+        return Objects.hash(wordKey, word, definition, example);
     }
 
     @Override
@@ -83,8 +72,7 @@ public class Word extends Model  {
         return "Word{" +
                 "wordKey=" + wordKey +
                 ", word='" + word + '\'' +
-                ", meaning='" + meaning + '\'' +
-                ", frequency=" + frequency +
+                ", definition='" + definition + '\'' +
                 ", example='" + example + '\'' +
                 '}';
     }
