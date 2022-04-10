@@ -9,11 +9,7 @@ import java.util.Objects;
 public class Word extends Model  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "word_key", unique = true, nullable = false)
-    private Integer wordKey;
-
-    @Column(name = "word", nullable = false)
+    @Column(name = "word", unique = true, nullable = false)
     private String word;
 
     @Column(name = "definition", nullable = false)
@@ -21,14 +17,6 @@ public class Word extends Model  {
 
     @Column(name = "example", nullable = true)
     private String example;
-
-    public Integer getWordKey() {
-        return wordKey;
-    }
-
-    public void setWordKey(Integer wordKey) {
-        this.wordKey = wordKey;
-    }
 
     public String getWord() {
         return word;
@@ -59,19 +47,18 @@ public class Word extends Model  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Word word1 = (Word) o;
-        return Objects.equals(wordKey, word1.wordKey) && Objects.equals(word, word1.word) && Objects.equals(definition, word1.definition) && Objects.equals(example, word1.example);
+        return Objects.equals(word, word1.word) && Objects.equals(definition, word1.definition) && Objects.equals(example, word1.example);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(wordKey, word, definition, example);
+        return Objects.hash(word, definition, example);
     }
 
     @Override
     public String toString() {
         return "Word{" +
-                "wordKey=" + wordKey +
-                ", word='" + word + '\'' +
+                "word=" + word +
                 ", definition='" + definition + '\'' +
                 ", example='" + example + '\'' +
                 '}';
