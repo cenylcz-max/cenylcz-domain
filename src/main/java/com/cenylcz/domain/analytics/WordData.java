@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "word_data", schema = "analytics")
+@Table(name = "words_data", schema = "analytics")
 public class WordData extends Model {
 
     @Id
