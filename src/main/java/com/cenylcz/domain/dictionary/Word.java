@@ -1,8 +1,8 @@
 package com.cenylcz.domain.dictionary;
 
 import com.cenylcz.Model;
+import com.cenylcz.constant.Alphabet;
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "words", schema = "cenylcz")
@@ -17,6 +17,10 @@ public class Word extends Model  {
 
     @Column(name = "example", nullable = true)
     private String example;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "alphabet", nullable = false)
+    private Alphabet alphabet;
 
     public String getWord() {
         return word;
@@ -42,25 +46,21 @@ public class Word extends Model  {
         this.example = example;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Word word1 = (Word) o;
-        return Objects.equals(word, word1.word) && Objects.equals(definition, word1.definition) && Objects.equals(example, word1.example);
+    public Alphabet getAlphabet() {
+        return alphabet;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(word, definition, example);
+    public void setAlphabet(Alphabet alphabet) {
+        this.alphabet = alphabet;
     }
 
     @Override
     public String toString() {
         return "Word{" +
-                "word=" + word +
+                "word='" + word + '\'' +
                 ", definition='" + definition + '\'' +
                 ", example='" + example + '\'' +
+                ", alphabet=" + alphabet +
                 '}';
     }
 }
