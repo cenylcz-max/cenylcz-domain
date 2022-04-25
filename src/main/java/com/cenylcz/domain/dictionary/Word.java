@@ -2,6 +2,7 @@ package com.cenylcz.domain.dictionary;
 
 import com.cenylcz.Model;
 import com.cenylcz.constant.Alphabet;
+import com.cenylcz.constant.WordCategory;
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +22,10 @@ public class Word extends Model  {
     @Enumerated(EnumType.STRING)
     @Column(name = "alphabet", nullable = false)
     private Alphabet alphabet;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "word_category", nullable = false)
+    private WordCategory wordCategory;
 
     public String getWord() {
         return word;
@@ -54,6 +59,14 @@ public class Word extends Model  {
         this.alphabet = alphabet;
     }
 
+    public WordCategory getWordCategory() {
+        return wordCategory;
+    }
+
+    public void setWordCategory(WordCategory wordCategory) {
+        this.wordCategory = wordCategory;
+    }
+
     @Override
     public String toString() {
         return "Word{" +
@@ -61,6 +74,7 @@ public class Word extends Model  {
                 ", definition='" + definition + '\'' +
                 ", example='" + example + '\'' +
                 ", alphabet=" + alphabet +
+                ", wordCategory=" + wordCategory +
                 '}';
     }
 }
