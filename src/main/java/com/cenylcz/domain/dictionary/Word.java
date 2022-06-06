@@ -27,6 +27,9 @@ public class Word extends Model  {
     @Column(name = "category", nullable = false)
     private Category category;
 
+    @Column(name = "frequency", nullable = false)
+    private Integer frequency;
+
     public String getWord() {
         return word;
     }
@@ -67,6 +70,14 @@ public class Word extends Model  {
         this.category = category;
     }
 
+    public Integer getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(Integer frequency) {
+        this.frequency = frequency;
+    }
+
     @Override
     public String toString() {
         return "Word{" +
@@ -75,6 +86,7 @@ public class Word extends Model  {
                 ", example='" + example + '\'' +
                 ", alphabet=" + alphabet +
                 ", category=" + category +
+                ", frequency=" + frequency +
                 '}';
     }
 }
