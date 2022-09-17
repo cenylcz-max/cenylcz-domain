@@ -4,7 +4,7 @@ import com.cenylcz.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-
+// decrepency domain
 @Entity
 @Table(name = "stock", schema = "business")
 public class Stock extends Model implements Serializable {
